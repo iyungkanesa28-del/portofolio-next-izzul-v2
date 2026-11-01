@@ -3,7 +3,7 @@ export const profile = {
   initials: "MI",
   role: "Pelajar SMK",
   about:
-    "Saya senang belajar melalui hal-hal yang saya sukai, mulai dari teknologi hingga dunia kreatif. Bagi saya, setiap proyek adalah kesempatan untuk mencoba, berkembang, dan menciptakan sesuatu yang baru.",
+    "Saya suka belajar hal baru, terutama tentang teknologi dan game. Kalau sedang mengerjakan proyek, saya biasanya mencoba dulu, lalu memperbaiki bagian yang masih kurang.",
   hobbies: [
     "Bermain game",
     "Badminton",

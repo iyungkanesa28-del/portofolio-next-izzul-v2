@@ -2,15 +2,21 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function ProjectCard({ project }) {
+  const projectUrl = `/proyek/${project.slug}`;
+  const imageClass =
+    project.imageFit === "contain"
+      ? "project-image project-image-contain"
+      : "project-image";
+
   return (
     <article className="project-card">
       <Link
-        className={`project-preview ${project.preview}`}
-        href={`/proyek/${project.slug}`}
-        aria-label={`Lihat gambar dan detail ${project.title}`}
+        className="project-preview"
+        href={projectUrl}
+        aria-label={`Lihat detail ${project.title}`}
       >
         <Image
-          className={`project-image ${project.imageFit === "contain" ? "project-image-contain" : ""}`}
+          className={imageClass}
           src={project.image}
           alt={project.imageAlt}
           fill
@@ -19,15 +25,15 @@ export default function ProjectCard({ project }) {
       </Link>
       <div className="project-content">
         <div className="project-category" aria-label="Teknologi">
-          {project.category.split(" · ").map((item) => (
-            <span key={item}>{item}</span>
+          {project.category.split(" · ").map((technology) => (
+            <span key={technology}>{technology}</span>
           ))}
         </div>
         <h2>
-          <Link href={`/proyek/${project.slug}`}>{project.title}</Link>
+          <Link href={projectUrl}>{project.title}</Link>
         </h2>
         <p className="project-description">{project.description}</p>
-        <Link className="text-link" href={`/proyek/${project.slug}`}>
+        <Link className="text-link" href={projectUrl}>
           Lihat detail <span aria-hidden="true">→</span>
         </Link>
       </div>

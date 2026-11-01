@@ -71,14 +71,11 @@ export default function HomePage() {
               </tr>
             </thead>
             <tbody>
-              {profile.studySchedule.map((item, index) => (
-                <tr
-                  key={`${item.day}-${item.time}`}
-                  className={index % 2 ? "alternate-row" : undefined}
-                >
-                  <td>{item.day}</td>
-                  <td>{item.time}</td>
-                  <td>{item.activity}</td>
+              {profile.studySchedule.map((jadwal) => (
+                <tr key={`${jadwal.day}-${jadwal.time}`}>
+                  <td>{jadwal.day}</td>
+                  <td>{jadwal.time}</td>
+                  <td>{jadwal.activity}</td>
                 </tr>
               ))}
             </tbody>

@@ -28,9 +28,13 @@ export default async function DetailProyekPage({ params }) {
 
   return (
     <main className="container page-main narrow-page">
-      <div className={`project-detail-preview project-preview ${project.preview}`}>
+      <div className="project-detail-preview project-preview">
         <Image
-          className={`project-detail-image ${project.imageFit === "contain" ? "project-detail-image-contain" : ""}`}
+          className={
+            project.imageFit === "contain"
+              ? "project-detail-image project-detail-image-contain"
+              : "project-detail-image"
+          }
           src={project.image}
           alt={project.imageAlt}
           width={project.imageWidth}
@@ -48,8 +52,8 @@ export default async function DetailProyekPage({ params }) {
         <p className="detail-copy">{project.details}</p>
         <h2>Yang saya pelajari</h2>
         <ul className="learning-list">
-          {project.learning.map((item) => (
-            <li key={item}>{item}</li>
+          {project.learning.map((lesson) => (
+            <li key={lesson}>{lesson}</li>
           ))}
         </ul>
       </div>
