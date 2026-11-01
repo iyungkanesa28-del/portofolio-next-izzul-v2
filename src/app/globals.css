@@ -46,7 +46,8 @@ a {
 
 .navigation {
   display: flex;
-  min-height: 60px;
+  width: min(100% - 48px, 1092px);
+  min-height: 64px;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
@@ -263,33 +264,33 @@ a {
 .home-page {
   display: flex;
   flex-direction: column;
-  gap: 22px;
-  padding-block: 44px 60px;
+  gap: 34px;
+  padding-block: 36px 60px;
 }
 
 .home-page > .container {
-  width: min(100% - 48px, 910px);
+  width: min(100% - 48px, 1040px);
   margin-inline: auto;
 }
 
 .home-panel {
-  border: 1px solid #e8eee8;
-  border-radius: 17px;
-  background: var(--white);
-  box-shadow: 0 2px 6px #10243b0d;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .home-page .hero {
-  min-height: 180px;
-  grid-template-columns: 108px 1fr;
+  min-height: 240px;
+  grid-template-columns: 140px 1fr;
   gap: 24px;
-  padding: 28px 32px;
+  padding: 0;
 }
 
 .hero-photo {
   display: block;
-  width: 108px;
-  height: 108px;
+  width: 138px;
+  height: 138px;
   padding: 0;
   border: 3px solid var(--red);
   background: none;
@@ -311,16 +312,21 @@ a {
 
 .home-page .hero-copy h1 {
   color: #17283e;
-  font-size: clamp(26px, 3.2vw, 32px);
-  font-weight: 600;
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 700;
   letter-spacing: -0.035em;
+  line-height: 1.05;
 }
 
 .home-page .hero-description {
-  margin: 5px 0 0;
+  margin: 12px 0 0;
   color: #68727b;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.6;
+}
+
+.home-page .hero-actions {
+  margin-top: 21px;
 }
 
 .home-about,
@@ -328,7 +334,7 @@ a {
 .home-skills,
 .home-schedule,
 .home-projects {
-  padding: 23px 24px;
+  padding: 0;
 }
 
 .home-about p,
@@ -344,9 +350,9 @@ a {
 .home-skills .home-section-title,
 .home-schedule .home-section-title,
 .home-projects .home-section-title {
-  margin-bottom: 11px;
+  margin-bottom: 22px;
   color: #202a35;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 600;
 }
 
@@ -367,27 +373,31 @@ a {
 }
 
 .home-skills-grid {
-  gap: 13px;
+  gap: 26px;
 }
 
 .home-skills-grid .skill-card {
-  min-height: 67px;
-  padding: 13px 15px;
-  border-color: #e7e9eb;
-  border-radius: 12px;
-  box-shadow: 0 1px 3px #10243b0a;
+  min-height: 105px;
+  padding: 20px 22px;
+  border-color: #e2e9e2;
+  border-radius: 14px;
+  box-shadow: 0 2px 4px #10243b12;
 }
 
 .home-skills-grid .skill-card-copy {
-  gap: 4px;
+  gap: 9px;
 }
 
 .home-skills-grid .skill-title {
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .home-skills-grid .skill-level {
-  font-size: 12px;
+  font-size: 14px;
+}
+
+.home-skills .section-more {
+  margin-top: 26px;
 }
 
 .home-projects > p {
@@ -994,6 +1004,10 @@ a {
     height: 100px;
   }
 
+  .home-page .hero-copy h1 {
+    font-size: clamp(32px, 8vw, 42px);
+  }
+
   .home-two-column {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -1004,7 +1018,7 @@ a {
   .home-skills,
   .home-schedule,
   .home-projects {
-    padding: 20px;
+    padding: 0;
   }
 
   .avatar {

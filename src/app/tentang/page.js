@@ -38,14 +38,28 @@ export default function TentangPage() {
       </div>
       <section className="section page-section">
         <div className="section-heading">
-          <p className="eyebrow">Yang saya sukai</p>
-          <h2>Hal-hal yang membuat saya penasaran</h2>
+          <p className="eyebrow">Kegiatan favorit</p>
+          <h2>Hobi saya</h2>
         </div>
         <div className="interest-list">
           {profile.hobbies.map((interest, index) => (
             <p className="interest-item" key={interest}>
               <span>0{index + 1}</span>
               {interest}
+            </p>
+          ))}
+        </div>
+      </section>
+      <section className="section page-section">
+        <div className="section-heading">
+          <p className="eyebrow">Rencana ke depan</p>
+          <h2>Cita-cita saya</h2>
+        </div>
+        <div className="interest-list">
+          {profile.goals.map((goal, index) => (
+            <p className="interest-item" key={goal}>
+              <span>0{index + 1}</span>
+              {goal}
             </p>
           ))}
         </div>

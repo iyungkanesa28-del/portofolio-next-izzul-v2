@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import ProjectCard from "../components/ProjectCard";
 import SkillCard from "../components/SkillCard";
 import { profile } from "../data/profile";
@@ -23,32 +24,16 @@ export default function HomePage() {
             Siswa kelas X SMK, calon Junior Web Developer di Kelas Industri
             UBIG.
           </p>
+          <div className="hero-actions">
+            <Link className="button button-primary" href="/tentang">
+              Tentang saya
+            </Link>
+            <Link className="button button-secondary" href="/keahlian">
+              Lihat keahlian
+            </Link>
+          </div>
         </div>
       </section>
-
-      <section className="container home-panel home-about" id="tentang">
-        <h2 className="home-section-title">Tentang Saya</h2>
-        <p>{profile.about}</p>
-      </section>
-
-      <div className="container home-two-column">
-        <section className="home-panel home-list-panel">
-          <h2 className="home-section-title">Hobi</h2>
-          <ol>
-            {profile.hobbies.map((hobby) => (
-              <li key={hobby}>{hobby}</li>
-            ))}
-          </ol>
-        </section>
-        <section className="home-panel home-list-panel">
-          <h2 className="home-section-title">Cita-cita</h2>
-          <ol>
-            {profile.goals.map((goal) => (
-              <li key={goal}>{goal}</li>
-            ))}
-          </ol>
-        </section>
-      </div>
 
       <section className="container home-panel home-skills" id="keahlian">
         <h2 className="home-section-title">Keahlian</h2>
@@ -57,6 +42,9 @@ export default function HomePage() {
             <SkillCard key={skill.slug} skill={skill} />
           ))}
         </div>
+        <Link className="button button-primary section-more" href="/keahlian">
+          Lihat semua keahlian
+        </Link>
       </section>
 
       <section className="container home-panel home-schedule">
