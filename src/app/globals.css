@@ -176,13 +176,13 @@ a {
   font-size: 14px;
   font-weight: 600;
   transition:
-    transform 160ms ease,
-    box-shadow 160ms ease,
-    background 160ms ease;
+    transform 260ms ease,
+    box-shadow 220ms ease,
+    background 220ms ease;
 }
 
 .button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-0.5px);
 }
 
 .button-primary {
