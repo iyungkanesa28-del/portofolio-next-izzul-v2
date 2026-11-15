@@ -22,7 +22,7 @@ export default function FilterKeahlian({ skills }) {
             onClick={() => setSelectedLevel(level)}
             className={`px-4 py-2 text-sm font-medium rounded-full border transition-all ${
               selectedLevel === level
-                ? "bg-red-700 text-white border-red-700 shadow"
+                ? "bg-aksen text-white border-aksen shadow"
                 : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
             }`}
           >
@@ -40,7 +40,7 @@ export default function FilterKeahlian({ skills }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {filteredSkills.map((skill) => (
           <SkillCard 
-            key={skill.id} 
+            key={skill.slug}
             // Mengirimkan props secara ektra/ganda untuk mengantisipasi 
             // apakah komponen SkillsCard Anda menggunakan properti 'nama' atau 'name'.
             skill={skill} 

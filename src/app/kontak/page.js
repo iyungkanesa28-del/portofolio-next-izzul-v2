@@ -1,6 +1,5 @@
-import Link from "next/link";
 import PageHeading from "../../components/PageHeading";
-import { profile } from "../../data/profile";
+import FormKontak from "../../components/FormKontak";
 
 export const metadata = {
   title: "Kontak",
@@ -8,27 +7,41 @@ export const metadata = {
 
 export default function KontakPage() {
   return (
-    <main className="container page-main narrow-page">
+    <main className="container page-main contact-page">
       <PageHeading
         eyebrow="Kontak"
-        title="Terima kasih sudah mampir."
-        description="Saya senang bisa berbagi proses belajar lewat portofolio ini."
+        title="Hubungi saya"
+        description="Punya pertanyaan atau ingin bekerja sama? Kirim pesan melalui formulir ini."
       />
-      <div className="contact-card">
-        <span className="contact-initials" aria-hidden="true">
-          {profile.initials}
-        </span>
-        <div>
-          <h2>{profile.name}</h2>
-          <p>
-            Informasi kontak akan ditambahkan di sini. Untuk saat ini, silakan
-            lihat kembali proyek dan hal-hal yang sedang saya pelajari.
+      <div className="contact-layout">
+        <section className="contact-form-card" aria-label="Formulir kontak">
+          <FormKontak />
+        </section>
+        <aside className="contact-info-card">
+          <div>
+            <h2>Temukan Saya di</h2>
+            <div className="contact-method">
+              <h3>GitHub</h3>
+              <a
+                href="https://github.com/iyungkanesa28-del"
+                target="_blank"
+                rel="noreferrer"
+              >
+                @iyungkanesa28-del
+              </a>
+            </div>
+            <div className="contact-method">
+              <h3>Email</h3>
+              <a href="mailto:iyungkanesa28@gmail.com">
+                iyungkanesa28@gmail.com
+              </a>
+            </div>
+          </div>
+          <p className="contact-response-time">
+            Terima kasih sudah mengunjungi portofolio saya.
           </p>
-        </div>
+        </aside>
       </div>
-      <Link className="button button-primary contact-back" href="/">
-        Kembali ke beranda
-      </Link>
     </main>
   );
 }

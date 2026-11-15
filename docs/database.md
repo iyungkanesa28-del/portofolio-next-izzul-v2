@@ -1,10 +1,10 @@
 ## Struktur Database Portofolio
 
-Database disimpan di Supabase, project `portofolio-fathir` (region Shouteast Asia, Singapore). Alamat project dan publishable key disimpan di `.env.local`, yang tidak ikut di-commit karena tercantum di `.gitignore` (`.env*`).
+Database disimpan di Supabase, project `portofolio-izzul` (region Shouteast Asia, Singapore). Alamat project dan publishable key disimpan di `.env.local`, yang tidak ikut di-commit karena tercantum di `.gitignore` (`.env*`).
 
 ## Tabel projects
 
-Daftar proyek portofolio Fathir Azzikri Putra Wibowo
+Daftar proyek portofolio Muhammad Izzul Faizin
 
 | Kolom | Tipe | Keterangan |
 | --- | --- | --- |
@@ -44,7 +44,7 @@ pesan. Policy `insert` dibuat di Minggu 15.
 
 ## Tabel `skills`
 
-Daftar keahlian Fathir Azzikri Putra Wibowo
+Daftar keahlian Muhammad Izzul Faizin
 
 | Kolom | Tipe | Keterangan |
 | --- | --- | --- |

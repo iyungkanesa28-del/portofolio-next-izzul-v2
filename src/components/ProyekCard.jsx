@@ -2,48 +2,41 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function ProyekCard({ proyek }) {
-    return (
-        <Link
-            href={`/proyek/${proyek.slug}`}
-            className="block overflow-hidden rounded-xl border border-gray-700 bg-white shadow-sm hover:shadow-md"
-        >
-            <div className="relative w-full aspect-[16/10] overflow-hidden bg-gray-100">
-            <Image
-                src={proyek.gambar}
-                alt={`Tangkapan layar ${proyek.judul}`}
-                width={640}
-                height={420}
-                className="h-auto w-full"
-            />
-            </div>
+  const categories = proyek.category
+    .split("·")
+    .map((category) => category.trim());
 
-            <div className="p-5">
-                <div className="flex flex-wrap gap-2">
-              
-                    {Array.isArray(proyek.kategori) ? (
-                        proyek.kategori.map((kat, index) => (
-                            <span className="rounded-full bg-latar px-3 py-1 text-xs font-semibold text-utama" key={index}>
-                                {kat} 
-                            </span>
-                        ))
-                    ) : (
-                      
-                        proyek.kategori && (
-                            <span className="rounded-full bg-latar px-3 py-1 text-xs font-semibold text-utama">
-                                {proyek.kategori}
-                            </span>
-                        )
-                    )}
-                </div>
-
-                <h3 className="mt-3 text-lg font-semibold text-utama">
-                    {proyek.judul}
-                </h3>
-
-                <p className="mt-1 text-sm text-gray-600">
-                    {proyek.deskripsi}
-                </p>
-            </div>
+  return (
+    <article className="project-card">
+      <Link
+        className="project-card-image-link"
+        href={`/proyek/${proyek.slug}`}
+        aria-label={`Lihat detail ${proyek.title}`}
+      >
+        <div className="project-preview">
+          <Image
+            className={`project-image${proyek.imageFit === "contain" ? " project-image-contain" : ""}`}
+            src={proyek.image}
+            alt={proyek.imageAlt}
+            width={proyek.imageWidth}
+            height={proyek.imageHeight}
+          />
+        </div>
+      </Link>
+      <div className="project-content">
+        <div className="project-category" aria-label="Teknologi">
+          {categories.map((category) => (
+            <span key={category}>{category}</span>
+          ))}
+        </div>
+        <h2>
+          <Link href={`/proyek/${proyek.slug}`}>{proyek.title}</Link>
+        </h2>
+        <p className="project-description">{proyek.description}</p>
+        <Link className="text-link" href={`/proyek/${proyek.slug}`}>
+          Lihat detail <span aria-hidden="true">→</span>
         </Link>
-    );
+      </div>
+    </article>
+  );
 }

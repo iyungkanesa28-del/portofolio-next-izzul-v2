@@ -1,5 +1,5 @@
 import PageHeading from "../../components/PageHeading";
-import ProjectCard from "../../components/ProjectCard";
+import ProyekCard from "../../components/ProyekCard";
 import { projects } from "../../data/projects";
 
 export const metadata = {
@@ -15,7 +15,7 @@ export default function ProyekPage() {
       />
       <div className="projects-grid projects-grid-page">
         {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
+          <ProyekCard key={project.slug} proyek={project} />
         ))}
       </div>
     </main>

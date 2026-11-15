@@ -1,70 +1,99 @@
+import Image from "next/image";
 import Link from "next/link";
-import Hero from "@/components/Hero";
 import ProyekCard from "@/components/ProyekCard";
-import { proyek } from "@/data/proyek";
-import FilterKeahlian from "@/components/FilterKeahlian";
+import SkillCard from "@/components/SkillCard";
+import { profile } from "@/data/profile";
+import { projects } from "@/data/projects";
+import { skills } from "@/data/skills";
 
-export default async function Page() {
-  const skills = [
-    { id: 1, nama: "HTML", level: "Menengah" },
-    { id: 2, nama: "CSS", level: "Menengah" },
-    { id: 3, nama: "Git dan GitHub", level: "Dasar" },
-    { id: 4, nama: "Desain poster dengan Canva", level: "Mahir" },
-    { id: 5, nama: "JavaScript", level: "Dasar" },
-  ];
-
-  const proyekTerbaru = proyek.slice(-3);
-
+export default function Page() {
   return (
-    <div className="min-h-screen text-gray-800 dark:text-gray-100 flex flex-col font-sans">
-      <main className="max-w-5xl mx-auto p-4 md:p-10 w-full space-y-12">
-        
-        {/* Section 1: Hero */}
-        <Hero
-          nama="Afvan Dyevariscky Akhbar"
-          tagline="Siswa kelas X SMK, calon Junior Web Developer di Kelas Industri UBIG." 
-          // Note: Jika fungsi scroll-to-section dibutuhkan di Hero, 
-          // pastikan logika interaksinya diatur di dalam komponen Hero (Client Component) itu sendiri.
-        />
-
-        {/* Section: Keahlian */}
-        <section id="keahlian" className="scroll-mt-6">
-          <h2 className="text-xl font-bold text-utama dark:text-sky-200 mb-5">Keahlian</h2>
-          
-          {/* Ketentuan 5: Mengganti div kartu keahlian lama dengan <FilterKeahlian /> */}
-          <FilterKeahlian skills={skills} />
-
-          <div className="mt-8 flex justify-start">
-            <Link 
-              href="/keahlian" 
-              className="rounded-lg bg-red-700 px-5 py-2.5 font-semibold text-white shadow-sm hover:bg-red-800 transition-all text-sm"
-            >
-              Lihat semua keahlian
-            </Link>
+    <main className="home-page">
+      <div className="container">
+        <section className="hero">
+          <Image
+            src="/profile-izzul.jpg"
+            alt={`Foto ${profile.name}`}
+            width={180}
+            height={180}
+            priority
+            className="hero-photo"
+          />
+          <div className="hero-copy">
+            <h1>Halo, saya {profile.name}!</h1>
+            <p className="hero-description">
+              Siswa kelas X SMK, calon Junior Web Developer di Kelas Industri
+              UBIG.
+            </p>
+            <div className="hero-actions">
+              <Link className="button button-primary" href="/tentang">
+                Tentang saya
+              </Link>
+              <Link className="button button-secondary" href="/keahlian">
+                Lihat keahlian
+              </Link>
+            </div>
           </div>
         </section>
 
-        {/* Section: Proyek Terbaru */}
-        <section className="pt-2">
-          <h2 className="mb-5 text-xl font-bold text-utama dark:text-sky-200">Proyek Terbaru</h2>
-          
-          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-            {proyekTerbaru.map((item) => (
-              <ProyekCard key={item.slug} proyek={item} />
+        <section className="home-skills" aria-labelledby="home-skills-title">
+          <h2 className="home-section-title" id="home-skills-title">
+            Keahlian
+          </h2>
+          <div className="skills-grid home-skills-grid">
+            {skills.map((skill) => (
+              <SkillCard key={skill.slug} skill={skill} />
             ))}
           </div>
-          
-          <div className="mt-8 flex justify-start">
-            <Link 
-              href="/proyek" 
-              className="rounded-lg bg-red-700 px-5 py-2.5 font-semibold text-white shadow-sm hover:bg-red-800 transition-all text-sm"
-            >
-              Lihat semua proyek
-            </Link>
+          <Link className="button button-secondary section-more" href="/keahlian">
+            Lihat semua keahlian
+          </Link>
+        </section>
+
+        <section className="home-schedule" aria-labelledby="schedule-title">
+          <h2 className="home-section-title" id="schedule-title">
+            Jadwal Belajar
+          </h2>
+          <div className="schedule-table-wrap">
+            <table className="schedule-table">
+              <thead>
+                <tr>
+                  <th scope="col">Hari</th>
+                  <th scope="col">Waktu</th>
+                  <th scope="col">Kegiatan</th>
+                </tr>
+              </thead>
+              <tbody>
+                {profile.studySchedule.map((item) => (
+                  <tr key={`${item.day}-${item.time}`}>
+                    <td>{item.day}</td>
+                    <td>{item.time}</td>
+                    <td>{item.activity}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </section>
 
-      </main>
-    </div>
+        <section className="home-projects" aria-labelledby="projects-title">
+          <h2 className="home-section-title" id="projects-title">
+            Proyek Saya
+          </h2>
+          <p>
+            Kumpulan hasil belajar saya di Kelas Industri UBIG. Klik kartu untuk
+            melihat detailnya.
+          </p>
+          <div className="projects-grid">
+            {projects.map((project) => (
+              <ProyekCard key={project.slug} proyek={project} />
+            ))}
+          </div>
+          <Link className="button button-secondary section-more" href="/proyek">
+            Lihat semua proyek
+          </Link>
+        </section>
+      </div>
+    </main>
   );
 }

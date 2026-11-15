@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import TombolTema from "./TombolTema";
 
 const links = [
   { label: "Beranda", href: "/" },
@@ -32,6 +33,7 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
+        <TombolTema />
       </nav>
     </header>
   );
