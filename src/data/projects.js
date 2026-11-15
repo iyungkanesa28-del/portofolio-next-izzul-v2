@@ -51,7 +51,7 @@ export const projects = [
       "Proyek ini merupakan latihan untuk menggabungkan komponen visual sederhana dengan dasar JavaScript. Isinya masih dapat dikembangkan seiring bertambahnya pengalaman.",
     learning: [
       "Membagi konten per bagian",
-      "Mengenal event JavaScript",
+      "Membagi konten per bagian",
       "Merapikan tampilan komponen",
     ],
   },
